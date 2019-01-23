@@ -2,13 +2,17 @@
 <!-- id = app 인 div 를 관리한다! -->
 <!-- 템플릿 문법들을 배워보자! -->
 <!-- 최상위 엔리먼트는 하나다-->
+<!-- v-if 는 if 처음 사용이 가능하다-->
 
 <template>
     <div>
-        {{greeting}}
-        {{count}}
-        <input type ="text" v-model = "greeting">
-        <button v-on:click = "addCount">add</button>
+       <button v-on:click = "toggleMenu">메뉴</button>
+       <div class = "menu" v-if="isMenuShow">
+           <div>홈</div>
+           <div>게시판</div>
+           <div>은지 칠칠이</div>
+       </div>
+    
     </div>
 </template>
 
@@ -19,34 +23,28 @@
 
     export default{
         //변수 선언 방법
-        data : function(){
+        data(){
             return {
-                greeting: '안녕하세요',
-                count: 0,
+                isMenuShow: false,
             }
         },
         //함수 선언 방법 
+        // this.isMenuShow = !this.isMenuShow
+        //로 사용가능 
         methods :{
-            addCount : function(){
-                this.count += 1
+            toggleMenu(){
+            if(this.isMenuShow){
+                this.isMenuShow = false
+            }else 
+            {
+                this.isMenuShow = true
+            }
+
             },
         },
-        //가상으로 생성되었을때!
-        created(){
-            console.log('created!')
-        },
-        //가상으로 생성된 컴포넌트가 실제로 삽입 되었을때.
-        mounted(){
-            console.log('mounted!')
-        },
-
-        //vue 인스턴스 라이프사이클 
-
-
-
-
-
-    } 
+    }
+   
+     
 </script>
 
 <!-- CSS -->
