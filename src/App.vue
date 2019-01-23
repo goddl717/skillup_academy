@@ -3,14 +3,19 @@
 <!-- 템플릿 문법들을 배워보자! -->
 <!-- 최상위 엔리먼트는 하나다-->
 <!-- v-if 는 if 처음 사용이 가능하다-->
+<!-- v-for의 사용방법 -->
+<!-- v-for와 key와 같이 다닌다-->
+<!-- attribute 를 v 문법에서 쓰고 싶다면 v-bind를 쓴다 그냥 줄여서 쓰면 : 을 쓰면 된다 
+ 그냥은 {{}}을 써서 접근한다. // 페이스북에서의  -->
+<!-- -->
 
 <template>
     <div>
        <button v-on:click = "toggleMenu">메뉴</button>
        <div class = "menu" v-if="isMenuShow">
-           <div>홈</div>
-           <div>게시판</div>
-           <div>은지 칠칠이</div>
+           <div v-for="item in menu" :key = "item" >
+            {{item}}
+           </div>
        </div>
     
     </div>
@@ -25,6 +30,7 @@
         //변수 선언 방법
         data(){
             return {
+                menu :['홈','홈','게시판'],
                 isMenuShow: false,
             }
         },
@@ -39,7 +45,6 @@
             {
                 this.isMenuShow = true
             }
-
             },
         },
     }
