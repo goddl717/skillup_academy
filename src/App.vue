@@ -17,12 +17,20 @@
         </div>
         <item>
         </item>
-        <div class= "items"   >
+        <div class= "items" >
 
-            <div class = "item" v-for = "(item,index) in items" :key = "item">
-                <div class = "item-label">{{item}}</div>
-                <button class = "item-delete" v-on:click = "deleteTodo(index)">삭제</button>
-            </div>
+            <Item  v-for = 
+            "(item,index) in items" 
+            :key = "item" 
+            :hole = "item"
+            :itemIndex = "index"
+            @delete = "deleteTodo($event)"
+            />
+             
+                <!--<div class = "item-label">{{item}}</div>-->
+                <!--//<button class = "item-delete" v-on:click = "deleteTodo(index)">삭제</button>-->
+          
+
         </div>
     </div>
 </template>
