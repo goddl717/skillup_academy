@@ -15,13 +15,14 @@
             <input type="text" class = "add-input" v-model = "addInput">
             <button class ="add-button" v-on:click = "addTodo">추가</button>
         </div>
+        <item>
+        </item>
         <div class= "items"   >
 
             <div class = "item" v-for = "(item,index) in items" :key = "item">
                 <div class = "item-label">{{item}}</div>
                 <button class = "item-delete" v-on:click = "deleteTodo(index)">삭제</button>
             </div>
-
         </div>
     </div>
 </template>
@@ -31,7 +32,15 @@
 <script>
     //변수 선언 방법//특이한 방법인거같다.
 
+    //다른 컴포넌트에서 불러오는 방법 
+    import Item from './components/Item.vue'
+
     export default{
+        // 불러오는 사용할 컴포넌트를 선언 
+        components :{
+            Item:Item,
+        },
+
         //변수 선언 방법
         data(){
             return {
