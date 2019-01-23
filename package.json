@@ -10,8 +10,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@vue/component-compiler-utils": "^2.5.0",
     "parcel-bundler": "^1.11.0",
     "sass": "^1.16.1",
-    "typescript": "^3.2.4"
+    "typescript": "^3.2.4",
+    "vue-template-compiler": "^2.5.22"
+  },
+  "dependencies": {
+    "vue": "^2.5.22",
+    "vue-hot-reload-api": "^2.3.1"
   }
 }
