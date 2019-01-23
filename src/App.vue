@@ -29,7 +29,7 @@
         },
         //가상으로 생성된 컴포넌트가 실제로 삽입 되었을때.
         mounted(){
-            consol.log('mounted!')
+            console.log('mounted!')
         },
 
         //vue 인스턴스 라이프사이클 
