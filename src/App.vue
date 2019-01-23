@@ -1,7 +1,15 @@
 <!--html  vue 템플릿 -->
+<!-- id = app 인 div 를 관리한다! -->
+<!-- 템플릿 문법들을 배워보자! -->
+<!-- 최상위 엔리먼트는 하나다-->
+
 <template>
-    <div>{{greeting}}{{count}}</div>
-   
+    <div>
+        {{greeting}}
+        {{count}}
+        <input type ="text" v-model = "greeting">
+        <button v-on:click = "addCount">add</button>
+    </div>
 </template>
 
 <!-- JS  vue 인스턴스. -->
