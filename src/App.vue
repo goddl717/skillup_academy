@@ -21,7 +21,7 @@
 
             <Item  v-for = 
             "(item,index) in items" 
-            :key = "item" 
+            :key = "index" 
             :hole = "item"
             :itemIndex = "index"
             @delete = "deleteTodo($event)"
