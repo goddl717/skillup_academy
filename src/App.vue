@@ -50,7 +50,7 @@
                     </div>
                     
                 <div class = "begged-item">담은 메뉴 </div>
-                {{fooditem}}
+                <div class = "view-item">{{fooditem}}</div>
                 <div class = "view-total">금액 : {{don}}</div>
 
             </div>
@@ -142,6 +142,7 @@
 
 <!-- CSS -->
 <style lang = "scss">
+
 .sheet{
     width : 400px;
     height : 400px;
@@ -189,6 +190,7 @@
         
      display: inline-block;
       border : 1px solid rgb(190,192,194);
+    
 
     }
     
@@ -197,29 +199,58 @@
         border :1px solid rgb(190,192,194);
         text-align : center;
         flex : 3;    
-      
-        
     }
   
    .left-window{
+       display : inline-block;
        flex :1;
-         border : 1px solid rgb(190,192,194);
-
+       border : 1px solid rgb(190,192,194);
+       display : flex;
+       flex-direction: column;
+       
         .platform{
+             border : 1px solid rgb(190,192,194);
+              text-align: center;
            .id-box{
+               text-align: center;
                display:flex;
+               .id-box2{
+                   input-align :center;
+               }
+               
            }
             .password-box{
+                text-align: center;
                 display:flex;
             }
         }
 
         .begged-item{
-            overflow-y: scroll;
+            
+            border : 1px solid rgb(190,192,194);
+           
+        }
+        .view-item{
+            flex :1;
+            border : 1px solid rgb(190,192,194);
+             overflow-y: scroll;
+        }
+        .view-total{
+            display : table-cell; 
+            align-items: flex-end;
+           
+            
+            border : 1px solid rgb(190,192,194);
+           
         }
    }
 
   
    }
 }
+
+
+ 
+
+
 </style>
