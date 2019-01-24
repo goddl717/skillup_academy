@@ -1,37 +1,24 @@
-<!--html  vue 템플릿 -->
-<!-- id = app 인 div 를 관리한다! -->
-<!-- 템플릿 문법들을 배워보자! -->
-<!-- 최상위 엔리먼트는 하나다-->
-<!-- v-if 는 if 처음 사용이 가능하다-->
-<!-- v-for의 사용방법 -->
-<!-- v-for와 key와 같이 다닌다-->
 <!-- attribute 를 v 문법에서 쓰고 싶다면 v-bind를 쓴다 그냥 줄여서 쓰면 : 을 쓰면 된다 
  그냥은 {{}}을 써서 접근한다. // 페이스북에서의  -->
 <!-- -->
             
 <template>
-    <div>
-        <div class = "add" >
-            <input type="text" class = "add-input" v-model = "addInput">
-            <button class ="add-button" v-on:click = "addTodo">추가</button>
-        </div>
-        <item>
-        </item>
-        <div class= "items" >
-
-            <Item  v-for = 
-            "(item,index) in items" 
-            :key = "index" 
-            :itemIndex = "index"
-            @delete = "deleteTodo($event)"
-            />
-             
-                <!--<div class = "item-label">{{item}}</div>-->
-                <!--//<button class = "item-delete" v-on:click = "deleteTodo(index)">삭제</button>-->
-          
-
-        </div>
+<div>
+    <div class = "top">
+        <div class = "top-title">반 도시락 서비스</div>
+        <div class = "top-menu">메뉴</div>  
     </div>
+
+    <div class = "middle" >
+            <div class = "right-window">리스트</div>
+
+            <div class = "left-window">
+               <div class = "login">로그인</div>
+                <div class = "view-total">금액리스트</div>
+            </div>
+    </div>
+</div>
+      
 </template>
 
 <!-- JS  vue 인스턴스. -->
@@ -39,14 +26,7 @@
 <script>
     //변수 선언 방법//특이한 방법인거같다.
 
-    //다른 컴포넌트에서 불러오는 방법 
-
     export default{
-        // 불러오는 사용할 컴포넌트를 선언 
-        components :{
-            Item:Item,
-        },
-
         //변수 선언 방법
         data(){
             return {
@@ -75,15 +55,22 @@
 <!-- CSS -->
 <style lang = "scss">
 
-.add-button{
-    display:inline-block;
+.top{
+    border : 2px dotted gray;
+
 }
-.item{
-    .item-label {
-        display : inline-block;
+.middle{
+    .right-window{
+        display: inline-block;
+        border : 2px dotted gray;
     }
-    .item-button {
-        display : inline-block;
-    }
+    
+   .left-window{
+        display:inline-block;
+   }
+
+   border : 2px dotted gray;
+   
 }
+ 
 </style>
