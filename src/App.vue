@@ -7,29 +7,23 @@
    
     <div class = "top">
         <div class = "top-title">"MOM"BOX</div>
-        <div class = "top-menu">메뉴</div>  
+        <div class = "top-main">
+            <div class = "top-menu">메뉴</div>  
+            <div class = "top-info">구독</div>
+            <div class = "top-infoco" >회사</div>
+        </div>
     </div>
 
     <div class = "middle" >
             <div class = "right-window">
                 <div>리스트</div>
-                <div class = "food-line1">
-                    음식1:가격
-                    <input class = "food1-button" type = "button">
-                    음식2:가격
-                    <input class = "food2-button" type = "button">
-                    음식3:가격
-                    <input class = "food3-button" type = "button">
-                    </div>
-                    <div class = "food-line2">
-                    음식4:가격
-                    <input class = "food4-button" type = "button">
-                    음식5:가격
-                    <input class = "food5-button" type = "button">
-                    음식6:가격
-                    <input class = "food6-button" type = "button">
-                    </div>
-                 </div>
+            
+            <div class = "list-view" v-for = "(item,index) in items" :key = "index" @click = "addMoney(index)">
+                <div>{{item[index,0]}}</div>
+                <button>{{item[index,0]}}</button>
+            </div>
+
+            </div>
 
             
             <div class = "left-window">
@@ -42,7 +36,7 @@
 
                      <div class = "password-box">
                         <div>password</div>
-                        <input class = "login-password" type="password"/>
+                        <input class = "login-password" type="text"/>
                     </div>
 
                     <div class = "check-box">
@@ -51,8 +45,8 @@
                     </div>
                     </div>
                     
-                <div class = "begged-item">담은 메뉴</div>
-                <div class = "view-total">금액리스트</div>
+                <div class = "begged-item">담은 메뉴 {{fooditem}}</div>
+                <div class = "view-total">금액 : {{don}}</div>
 
             </div>
     </div>
@@ -64,13 +58,15 @@
 <!-- 변수를 선언 함수를 선언.-->
 <script>
     //변수 선언 방법//특이한 방법인거같다.
-
     export default{
         //변수 선언 방법
         data(){
             return {
                 addInput :'',
-                items : [] ,
+                items : [["불고기",2000],["제육볶음",200],["밥",500],["새우튀김",1000],["김치",300],["단무지",100],["된장국",500]],
+                don : 0,
+                fooditem : [],
+                temp : "",
             }
         },
         //함수 선언 방법 
@@ -83,8 +79,21 @@
             },
             deleteTodo(index){
               this.items.splice(index,1)
-            }
-            }
+            },
+            addMoney(index){
+                {
+                    console.log(this.items[index][1])
+                    this.don += this.items[index][1]
+                    this.temp = this.items[index][0]
+                    console.log(this.temp)
+                    this.fooditem.push(this.temp)
+                    
+                    console.log(this.fooditem)
+                }
+
+            },
+            
+        },
         
     }
    
@@ -95,58 +104,57 @@
 <style lang = "scss">
 .sheet{
     background-color: rgb(255,247,225);
-
 .top{
-
     border :1.5px solid rgb(190,192,194);
-    .top-menu{
-        border : 1px solid rgb(190,192,194);
-    }
-    .top-title{
+   
 
-        text-align : center;
+    .top-title{
+        text-align: center ;
         font-size: 50px;
     }
+
+    .top-main{
+        border : 1px solid rgb(190,192,194);
+        display: flex;
+        text-align: left;
+        .top-menu{  
+            flex :1;
+        }
+        .top-info{
+         
+            flex :1;
+        }
+        .top-info{
+         
+            flex :1;
+        }
+    }
+
+
 }
 
 .middle{
-    display : inline-block;
     border : 1px solid rgb(190,192,194);
     display: flex;
+    
+    .list-view{
+    display: inline-block;
+      border : 1px solid rgb(190,192,194);
 
+    }
+    
     .right-window{
         border :1px solid rgb(190,192,194);
-        flex : 3;
-        .food1-button{
-            background: url("/images/sow.PNG")no-repeat;
-            border: none;
-            border-radius: 12px;
-            width: 100px;
-            height: 100px;
-            
-        }
-        .food2-button{
-            margin-right: 400px;
-            margin-bottom: 200px
-        }
-        .food3-button{
-            margin-bottom: 200px;
-        }
-        .food4-button{
-            margin-right: 400px;
-            margin-bottom: 200px
-        }
-        .food5-button{
-            margin-right: 400px;
-            margin-bottom: 200px
-        }
-        .food6-button{
-            margin-bottom:200px;
-        }     
+        text-align : center;
+        flex : 3;    
+      
+        
     }
   
    .left-window{
+       flex :1;
          border : 1px solid rgb(190,192,194);
+
         .platform{
            .id-box{
                display:flex;
