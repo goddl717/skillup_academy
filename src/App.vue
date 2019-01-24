@@ -29,19 +29,19 @@
             <div class = "left-window">
                <div class = "platform">로그인
                     <div class = "id-box">
-                        <div class = "id-box1">id</div> 
-                        <input  class = "id-box2 " type="text"/>
+                        <div class = "id-box1" length = 10 >id:</div> 
+                        <input  class = "id-box2 " type="text" v-model = "user_id"/>
                         
                     </div>
 
                      <div class = "password-box">
-                        <div>password</div>
-                        <input class = "login-password" type="text"/>
+                        <div>password:</div>
+                        <input class = "login-password" type="text" v-model = "user_password"/>
                     </div>
 
                     <div class = "check-box">
-                        <button class = "login">login</button>
-                        <button class = "sign-up">sign-up</button>  
+                        <button class = "login" @click = "checkLogin">login</button>
+                        <button class = "sign-up " @click = "checkSignup">sign-up</button>  
                     </div>
                     </div>
                     
@@ -67,6 +67,11 @@
                 don : 0,
                 fooditem : [],
                 temp : "",
+                user_id : "",
+                user_password : "",
+                useritems : [["username","password"]],
+                flag : 0
+
             }
         },
         //함수 선언 방법 
@@ -81,21 +86,51 @@
               this.items.splice(index,1)
             },
             addMoney(index){
-                {
-                    console.log(this.items[index][1])
-                    this.don += this.items[index][1]
-                    this.temp = this.items[index][0]
-                    console.log(this.temp)
-                    this.fooditem.push(this.temp)
-                    
-                    console.log(this.fooditem)
-                }
+                
+                    console.log(this.items[index][1]);
+                    this.don += this.items[index][1];
+                    this.temp = this.items[index][0];
+                    console.log(this.temp);
+                    this.fooditem.push(this.temp);
+                    console.log(this.fooditem);
+                },
 
+            checkLogin(){
+               for(var i = 0 ; i <this.useritems.length ; i ++)
+               {
+                   if (this.useritems[i][0] == this.user_id && this.useritems[i][1] == this.user_password)
+                    {
+                        this.flag =1;
+                        break;
+                    }
+               }
+               if (this.flag == 1){
+                   alert("로그인 성공");
+                   this.user_id =""
+                   this.user_password =""
+               }
+               else {
+                   alert ("로그인 실패")
+                    
+                    this.user_password =""
+
+               }
+            },
+            checkSignup(){
+                alert("로그인 성공");
+                this.flag = 0;
+                this.useritems.push([this.user_id,this.user_password])
+                console.log(this.items)
+                this.user_id =""
+                this.user_password =""
+            }
+    
             },
             
-        },
+        }
         
-    }
+    
+    
    
      
 </script>
