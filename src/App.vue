@@ -4,23 +4,27 @@
             
 <template>
 <div class = "sheet">
-   
+
+
     <div class = "top">
+        
         <div class = "top-title">"MOM"BOX</div>
         <div class = "top-main">
             <div class = "top-menu">메뉴</div>  
-            <div class = "top-info">구독</div>
-            <div class = "top-infoco" >회사</div>
+            <div class = "top-info">구독 정보</div>
+            <div class = "top-infoco" >회사 정보</div>
         </div>
     </div>
 
     <div class = "middle" >
+      
             <div class = "right-window">
-                <div>리스트</div>
+                <div>메뉴 리스트</div>
             
             <div class = "list-view" v-for = "(item,index) in items" :key = "index" @click = "addMoney(index)">
                 <div>{{item[index,0]}}</div>
                 <button>{{item[index,0]}}</button>
+                <div>{{item[index,1]}}원</div>
             </div>
 
             </div>
@@ -45,7 +49,8 @@
                     </div>
                     </div>
                     
-                <div class = "begged-item">담은 메뉴 {{fooditem}}</div>
+                <div class = "begged-item">담은 메뉴 </div>
+                {{fooditem}}
                 <div class = "view-total">금액 : {{don}}</div>
 
             </div>
@@ -117,7 +122,7 @@
                }
             },
             checkSignup(){
-                alert("로그인 성공");
+                alert("회원가입 성공");
                 this.flag = 0;
                 this.useritems.push([this.user_id,this.user_password])
                 console.log(this.items)
@@ -138,10 +143,15 @@
 <!-- CSS -->
 <style lang = "scss">
 .sheet{
+    width : 400px;
+    height : 400px;
+    
     background-color: rgb(255,247,225);
+    display : flex;
+    flex-direction: column;
 .top{
-    border :1.5px solid rgb(190,192,194);
-   
+   border :1.5px solid rgb(190,192,194);
+  
 
     .top-title{
         text-align: center ;
@@ -151,17 +161,18 @@
     .top-main{
         border : 1px solid rgb(190,192,194);
         display: flex;
-        text-align: left;
+        text-align: center;
         .top-menu{  
+             border : 1px solid rgb(190,192,194);
             flex :1;
         }
         .top-info{
-         
+          border : 1px solid rgb(190,192,194);
             flex :1;
         }
-        .top-info{
-         
-            flex :1;
+        .top-infoco{
+          border : 1px solid rgb(190,192,194);
+          flex :1;
         }
     }
 
@@ -169,16 +180,20 @@
 }
 
 .middle{
+    flex : 1;
     border : 1px solid rgb(190,192,194);
     display: flex;
     
+
     .list-view{
-    display: inline-block;
+        
+     display: inline-block;
       border : 1px solid rgb(190,192,194);
 
     }
     
     .right-window{
+        overflow-y: scroll;
         border :1px solid rgb(190,192,194);
         text-align : center;
         flex : 3;    
@@ -197,6 +212,10 @@
             .password-box{
                 display:flex;
             }
+        }
+
+        .begged-item{
+            overflow-y: scroll;
         }
    }
 
