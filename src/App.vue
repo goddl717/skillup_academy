@@ -4,6 +4,7 @@
             
 <template>
 <div>
+   
     <div class = "top">
         <div class = "top-title">반 도시락 서비스</div>
         <div class = "top-menu">메뉴</div>  
@@ -11,10 +12,29 @@
 
     <div class = "middle" >
             <div class = "right-window">리스트</div>
-
+            
             <div class = "left-window">
-               <div class = "login">로그인</div>
+               <div class = "platform">로그인
+                    <div class = "id-box">
+                        <div class = "id-box1">id</div> 
+                        <input  class = "id-box2 " type="text"/>
+                        
+                    </div>
+
+                     <div class = "password-box">
+                        <div>password</div>
+                        <input class = "login-password" type="text"/>
+                    </div>
+
+                    <div class = "check-box">
+                        <button class = "login">login</button>
+                        <button class = "sign-up">sign-up</button>  
+                    </div>
+                    </div>
+                    
+                <div class = "begged-item">담은 메뉴</div>
                 <div class = "view-total">금액리스트</div>
+
             </div>
     </div>
 </div>
@@ -54,22 +74,34 @@
 
 <!-- CSS -->
 <style lang = "scss">
-
 .top{
     border : 2px dotted gray;
 
 }
+
 .middle{
+    display : inline-block;
+    border : 2px dotted gray;
+    display: flex;
+
     .right-window{
-        display: inline-block;
         border : 2px dotted gray;
+        flex : 3;
     }
-    
+  
    .left-window{
-        display:inline-block;
+         border : 2px dotted gray;
+        .platform{
+           .id-box{
+               display:flex;
+           }
+            .password-box{
+                display:flex;
+            }
+        }
    }
 
-   border : 2px dotted gray;
+  
    
 }
  
