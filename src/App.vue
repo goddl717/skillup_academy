@@ -51,7 +51,10 @@
                     
                 <div class = "begged-item">담은 메뉴 </div>
                 <div class = "view-item">{{fooditem}}</div>
-                <div class = "view-total">금액 : {{don}}</div>
+                <div class = "view-total">
+                    <div class = "view-real">금액 : {{don}}</div>
+                    <button class = "paybutton" @click = "checkPay">결제하기</button>
+                </div>
 
             </div>
     </div>
@@ -128,6 +131,11 @@
                 console.log(this.items)
                 this.user_id =""
                 this.user_password =""
+            },
+          
+            checkPay(){
+               
+                confirm(this.don+"원을 결제하시겠습니까?")
             }
     
             },
@@ -211,11 +219,12 @@
         .platform{
              border : 1px solid rgb(190,192,194);
               text-align: center;
+           
            .id-box{
                text-align: center;
                display:flex;
-               .id-box2{
-                   input-align :center;
+               .id-box1{
+                   flex :1;  
                }
                
            }
@@ -238,10 +247,12 @@
         .view-total{
             display : table-cell; 
             align-items: flex-end;
-           
-            
+            text-align: right;
             border : 1px solid rgb(190,192,194);
-           
+           .view-real{
+               text-align : right;
+
+           }
         }
    }
 
