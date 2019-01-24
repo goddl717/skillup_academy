@@ -22,7 +22,6 @@
             <Item  v-for = 
             "(item,index) in items" 
             :key = "index" 
-            :hole = "item"
             :itemIndex = "index"
             @delete = "deleteTodo($event)"
             />
@@ -41,7 +40,6 @@
     //변수 선언 방법//특이한 방법인거같다.
 
     //다른 컴포넌트에서 불러오는 방법 
-    import Item from './components/Item.vue'
 
     export default{
         // 불러오는 사용할 컴포넌트를 선언 
